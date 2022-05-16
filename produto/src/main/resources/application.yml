@@ -1,0 +1,30 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: produto-ms
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/produto-ms
+    username: admin
+    password: 123456
+    initialization-mode: always
+    initialize: true
+    continue-on-error: true
+    platform: postgresql
+    maxActive: 3
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+      format-sql: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka
