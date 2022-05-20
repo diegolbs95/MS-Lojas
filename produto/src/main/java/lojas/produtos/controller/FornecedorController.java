@@ -1,9 +1,7 @@
 package lojas.produtos.controller;
 
 import lojas.produtos.modulo.Fornecedor;
-import lojas.produtos.modulo.Produto;
 import lojas.produtos.servicos.FornecedorService;
-import lojas.produtos.servicos.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -31,6 +29,11 @@ public class FornecedorController {
     public ResponseEntity<Fornecedor> buscaId(@PathVariable Long id){
         System.out.println(format("Servico rodando na porta: %s chamado.", serverPort));
         return ResponseEntity.ok(service.fornecedorId(id));
+    }
+    @PutMapping("/nome")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void mudarNome (@RequestBody Fornecedor fornecedor){
+        service.mudarNome(fornecedor);
     }
 
     @PostMapping

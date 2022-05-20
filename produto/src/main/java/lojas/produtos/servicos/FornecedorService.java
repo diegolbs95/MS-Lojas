@@ -7,7 +7,9 @@ import lojas.produtos.repositorio.ProdutoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class FornecedorService {
@@ -25,5 +27,13 @@ public class FornecedorService {
 
     public Fornecedor adicionar (Fornecedor fornecedor){
         return repositorio.save(fornecedor);
+    }
+
+    public void mudarNome (Fornecedor nome){
+        var fornecedores = repositorio.findAll();
+        for (Fornecedor fornecedor: fornecedores) {
+            fornecedor.setNome(nome.getNome());
+            repositorio.save(fornecedor);
+        }
     }
 }
