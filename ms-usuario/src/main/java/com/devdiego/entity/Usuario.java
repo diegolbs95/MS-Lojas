@@ -20,6 +20,7 @@ public class Usuario {
 
     private String nome;
     private String senha;
+    @Column(unique = true)//NAO DEIXA O BANCO DE DADOS REPETIR O EMAIL
     private String email;
 
     @ManyToMany(fetch = FetchType.EAGER)

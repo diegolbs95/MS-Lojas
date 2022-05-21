@@ -17,8 +17,8 @@ public class FornecedorController {
     @Autowired
     private FornecedorService service;
 
-    @Value("${server.port}")
-    private int serverPort;
+//    @Value("${server.port}")
+//    private int serverPort;
 
     @GetMapping
     public ResponseEntity<?> listar (){
@@ -27,7 +27,7 @@ public class FornecedorController {
 
     @GetMapping("{id}")
     public ResponseEntity<Fornecedor> buscaId(@PathVariable Long id){
-        System.out.println(format("Servico rodando na porta: %s chamado.", serverPort));
+//        System.out.println(format("Servico rodando na porta: %s chamado.", serverPort));
         return ResponseEntity.ok(service.fornecedorId(id));
     }
     @PutMapping("/nome")
