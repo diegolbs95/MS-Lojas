@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {
@@ -26,7 +25,7 @@ public class ProdutoController {
         return ResponseEntity.ok(service.produtoId(id));
     }
 
-    @PostMapping
+    @PostMapping("/adicionar")
     public ResponseEntity<Produto> adicionar (@RequestBody Produto produto){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.adicionar(produto));
     }
@@ -34,5 +33,9 @@ public class ProdutoController {
     @PutMapping("/{id}")
     public ResponseEntity<Produto> atualizar (@PathVariable Long id, @RequestBody Produto produto){
         return ResponseEntity.ok(service.atualizar(id, produto));
+    }
+    @PutMapping("/vendas")
+    public Produto vendaProdutos (@RequestBody  String nome, @RequestParam Integer quantidade) {
+        return service.vendaProduto(nome, quantidade);
     }
 }

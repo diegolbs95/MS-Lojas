@@ -19,25 +19,25 @@ public class Produto implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @Column(name = "tb_nome",nullable = false)
-    private String nome;
+    @Column(name = "nome",nullable = false)
+    private String nomeProduto;
 
-    @Column(name = "tb_quantidade",nullable = false)
-    private Integer quantidade;
+    @Column(name = "quantidade_estoque",nullable = false)
+    private Integer quantidadeEstoque;
 
-    @Column(name = "tb_valor",nullable = false)
-    private Double valor;
+    @Column(name = "valor_unitario",nullable = false)
+    private Double valorUnitario;
 
-    @Column(name = "tb_total_estoque", nullable = false)
-    private Double valorEstoque;
+    @Column(name = "valor_em_estoque", nullable = false)
+    private Double valorEmEstoque ;
 
     @ManyToOne
     @JoinColumn(name = "fornecedor_id")
     private Fornecedor fornecedor;
 
-    public Double getTotal(){
-       valorEstoque = quantidade * valor;
-       return valorEstoque;
+    public Double getValorEmEstoque() {
+        valorEmEstoque = quantidadeEstoque * valorUnitario;
+        return valorEmEstoque;
     }
 
 }

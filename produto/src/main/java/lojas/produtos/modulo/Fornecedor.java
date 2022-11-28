@@ -24,7 +24,7 @@ public class Fornecedor  implements Serializable {
     @Column(nullable = false)
     private String nome;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "fornecedor")
-    private List<Produto> produtos = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "fornecedor")
+//    private List<Produto> produtos = new ArrayList<>();
 }

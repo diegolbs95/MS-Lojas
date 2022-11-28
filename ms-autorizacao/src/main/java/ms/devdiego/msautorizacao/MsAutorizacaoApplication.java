@@ -14,4 +14,5 @@ public class MsAutorizacaoApplication {
 		SpringApplication.run(MsAutorizacaoApplication.class, args);
 	}
 
+
 }

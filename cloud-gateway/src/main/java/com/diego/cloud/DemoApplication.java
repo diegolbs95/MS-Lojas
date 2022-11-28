@@ -15,18 +15,18 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 
-    @Bean
-    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-        return builder.routes()
-                .route("produto-service", r -> r.path("/produto/**")
-                        .filters(f -> f.rewritePath("/produto/(?<path>.*)", "/$\\{path}"))
-                        .uri("lb://produto-ms")
-                )
-                .route("google", r -> r.host("/goo")
-                        .uri("https://google.com.br"))
-                .route("usuario-ms", r -> r.host("/usuario/**")
-                        .filters(f -> f.rewritePath("/usuario/(?<path>.*)", "/$\\{path}"))
-                        .uri("lb://usuario-ms"))
+//    @Bean
+//    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+//        return builder.routes()
+//                .route("produto-service", r -> r.path("/produto/**")
+//                        .filters(f -> f.rewritePath("/produto/(?<path>.*)", "/$\\{path}"))
+//                        .uri("lb://produto-ms")
+//                )
+//                .route("google", r -> r.host("/goo")
+//                        .uri("https://google.com.br"))
+//                .route("usuario-service", r -> r.host("/usuario/**")
+//                        .filters(f -> f.rewritePath("/usuario/(?<path>.*)", "/$\\{path}"))
+//                        .uri("lb://usuario-ms"))
 //                .route("hystrix_route", r -> r.host("*.hystrix.org")
 //                        .filters(f -> f.hystrix(c -> c.setName("slowcmd")))
 //                        .uri("http://httpbin.org"))
@@ -37,6 +37,8 @@ public class DemoApplication {
 //                        .host("*.limited.org").and().path("/anything/**")
 //                        .filters(f -> f.requestRateLimiter(c -> c.setRateLimiter(redisRateLimiter())))
 //                        .uri("http://httpbin.org"))
-                .build();
-    }
+//                .build();
+//    }
 }
+
+

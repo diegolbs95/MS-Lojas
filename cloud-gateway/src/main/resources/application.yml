@@ -6,13 +6,26 @@ spring:
       discovery:
         locator:
           enabled: true
-#      routes:
-#        - id: produto-service
-#          uri: lb://produto-ms
-#          predicates:
-#            - Path=/produto/**
-#          filters:
-#            - RewritePath=/produto/(?<path>.*), /$\{path}
+      routes:
+        - id: produto-service
+          uri: lb://produto-ms
+          predicates:
+            - Path=/produto/**
+          filters:
+            - RewritePath=/produto/(?<path>.*), /$\{path}
+        - id: usuario-service
+          uri: lb://usuario-ms
+          predicates:
+            - Path=/usuario/**
+          filters:
+            - RewritePath=/usuario/(?<path>.*), /$\{path}
+        - id: autorizacao-service
+          uri: lb://autorizacao-ms
+          predicates:
+            - Path=/autorizacao/**
+          filters:
+            - RewritePath=/autorizacao/(?<path>.*), /$\{path}
+          sensitive-headers: Cookie, Set-Cookie
 server:
   port: 8766
   servlet:
